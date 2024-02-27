@@ -1,0 +1,794 @@
+@use '__variables.scss' as v;
+
+*, ::before, ::after{
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+
+
+// GRID CONTROL
+
+.even-columns{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    align-items: center;
+}
+
+.tripplet{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    justify-items: center;
+}
+
+.section-padding{
+    @include v.section-control(12rem, 5.5rem)
+}
+
+.small-section-padding{
+    @include v.section-control(6rem,5.5rem)
+}
+
+.xsmall-section-padding{
+    @include v.section-control(2rem,5.5rem)
+}
+
+
+
+
+// MARGIN
+
+.margin-heading{
+    margin-bottom: 20px;
+}
+
+.margin-p{
+    margin-bottom: 60px;
+}
+
+
+// HEADINGS
+
+.heading-xl{
+  @include v.heading(v.$fs-700, v.$fw-700);
+}
+
+.heading-l{
+    @include v.heading(v.$fs-600, v.$fw-700);
+}
+
+.heading-m{
+    @include v.heading(v.$fs-500, v.$fw-700);
+}
+
+.heading-m-2 {
+    @include v.heading(v.$fs-500, v.$fw-600);
+}
+
+.heading-s{
+    @include v.heading(v.$fs-400, v.$fw-600);
+}
+.heading-xs{
+    @include v.heading(v.$fs-300, v.$fw-600);
+}
+
+.heading-xxs{
+    @include v.heading(v.$fs-200, v.$fw-600)
+}
+
+.heading-xs-700{
+    @include v.heading(v.$fs-300, v.$fw-700);
+}
+.heading-xs-400{
+    @include v.heading(v.$fs-300, v.$fw-400);
+}
+
+.p-font{
+    font-family: v.$ff-body;
+    font-size: v.$fs-300;
+    line-height: 150%;
+    margin-bottom: 40px;
+}
+
+// COLORS
+
+.back-orange{
+    background-color: v.$clr-secondary-orange-opacity;
+}
+
+.back-green{
+    background-color: v.$clr-accent-green-opacity;
+}
+
+.back-yellow{
+    background-color: v.$clr-secondary-yellow-opacity;
+}
+
+
+// Buttons
+
+a{
+    text-decoration: none;
+}
+
+button{
+    margin-bottom: 0;
+}
+
+.button-green{
+    @include v.button (v.$clr-accent-green, v.$clr-white);
+    &:hover{
+        transform: scale(0.95);
+    }
+    &:active{
+        transform: scale(0.8);
+        box-shadow: 0 0 30px v.$clr-primary-gray;
+    }
+}
+
+.button-lightgreen{
+    @include v.button (v.$clr-accent-lightgreen, v.$clr-accent-green);
+    &:hover {
+        transform: scale(0.95);
+    }
+    
+    &:active {
+        transform: scale(0.8);
+        box-shadow: 0 0 30px v.$clr-primary-gray;
+    }
+}
+
+.button-white{
+    @include v.button (v.$clr-white, v.$clr-accent-green);
+    border: 1px solid v.$clr-accent-green;
+    &:hover {
+        transform: scale(0.95);
+    }
+    
+    &:active {
+        transform: scale(0.8);
+        box-shadow: 0 0 30px v.$clr-primary-gray;
+    }
+}
+
+.button-transparent{
+    height: 60px;
+    border-radius: 20px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: v.$clr-accent-green;
+    gap: 50px;
+    transition: transform 400ms;
+    &:hover {
+        transform: scale(1.2);
+    }
+    
+    &:active {
+        transform: scale(0.4);
+    }
+}
+
+// CARDS
+
+.card-feature{
+    max-width: 37rem;
+    background-color: white;
+    padding: 40px 30px;
+    @include v.flexer(center, center, column, 30px);
+    border-radius: 20px;
+    box-shadow: 34px 29px 48px 0px rgba(v.$clr-primary-black, $alpha: 0.05);
+    
+}
+
+.card-testimonial {
+    min-width: 100%;
+    background-color: white;
+    padding: 40px 30px;
+    @include v.flexer(center, center, column, 30px);
+    border-radius: 20px;
+    box-shadow: 34px 29px 48px 0px rgba(v.$clr-primary-black, $alpha: 0.05);
+    
+}
+
+.card-plan {
+    min-width: 100%;
+    background-color: white;
+    padding: 4rem 3rem;
+    @include v.flexer(center, center, column, 30px);
+    border-radius: 20px;
+    box-shadow: 34px 29px 48px 0px rgba(v.$clr-primary-black, $alpha: 0.05);
+    transition: 250ms ease-out;
+    &:hover{
+        transform: scale(1.05);
+        background-color: v.$clr-accent-green;
+        color: v.$clr-white;
+        box-shadow: 34px 29px 48px 0px rgba(v.$clr-primary-black, $alpha: 0.2);
+    }
+    &:active{
+        transform: scale(1);
+        box-shadow: 0 0 30px v.$clr-primary-gray;
+    }
+    
+}
+
+.card-photo{
+    max-width: 37rem;
+    background-color: white;
+    padding-bottom: 30px;
+    @include v.flexer(center, center, column, 30px);
+    border-radius: 20px;
+    img{
+        height: 30rem;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+}
+
+
+.card-photo img{
+    max-width: 100%;
+}
+
+// INPUTS 
+
+.input{
+    
+    @include v.flexer(start, center, row, 12px);
+    background-color: v.$clr-white;
+    padding: 2rem 2rem;
+    border-radius: 20px;
+    border: 1px solid v.$clr-primary-gray;
+    position: relative;
+    &::before{
+        content: '';
+        width: 1px;
+        height: 20px;
+        background-color: black;
+        position: absolute;
+        left: 46px;
+    }
+}
+
+
+
+input{
+    border: none;
+    outline: none;
+}
+
+// Metrics
+
+.metrics{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+}
+
+
+.card-metrics{
+    min-width: 100%;
+    background-color: white;
+    padding: 48px 16px;
+    @include v.flexer(center, center, column, 5px);
+    border-radius: 20px 20px 0px 0px;
+    box-shadow: 34px 29px 48px 0px rgba(v.$clr-primary-black, $alpha: 0.05);
+    border-bottom: 4px solid v.$clr-secondary-pink;
+    transition: transform 1000ms;
+    &:hover{
+        transform: translateY(-2rem);
+        transition: transform 300ms;
+        box-shadow: 0px 20px 30px 0px rgba(v.$clr-primary-black, $alpha: 0.1);
+    }
+}
+
+
+// FLEXERS (display flex)
+
+
+.line-flexer{
+    @include v.flexer(center, center, row, 5rem)
+}
+
+.line-flexer-xs{
+    @include v.flexer(center, center, row, 1rem)
+}
+
+.line-flexer-start{
+    @include v.flexer(start, center, row, 2rem)
+}
+
+.column-flexer{
+    @include v.flexer(start, start, column, 3rem)
+}
+
+li{
+    list-style: none;
+}
+
+
+
+
+
+
+
+body{
+    @include v.main-body();
+    background-color: v.$clr-primary-bg;
+}
+
+
+
+// NAVBAR
+
+.nav-font{
+    @include v.heading(v.$fs-200, v.$fw-600);
+}
+
+.nav-padding{
+    @include v.section-control(2rem, 5rem);
+}
+
+// SECTION BRANDS
+
+.brands{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 30px;
+    justify-items: center;
+    border-top: 1px solid v.$clr-primary-gray;
+    border-bottom: 1px solid v.$clr-primary-gray;
+    margin: 0 6rem;
+}
+
+// FEATURE SECTION
+
+
+.features__icons-back{
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+.features__link{
+    color: v.$clr-accent-green;
+    transition: transform 0.2s ;
+    &:hover img{
+        transform: translateX(30%);
+    }
+}
+
+// METRICS
+
+// TESTIMONIALS
+
+.cards-wrapper{
+    @include v.flexer(center, center, row, 14rem);
+}
+
+
+#carouselExample{
+    padding: 4rem 3rem;
+    background-color: v.$clr-secondary-pink;
+    border-radius: 20px;
+    margin: 0 4rem;
+}
+
+// CONTACT US
+
+.contact{
+    background-color: v.$clr-white;
+    border-radius: 20px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+// FOOTER
+
+footer{
+    background-color: v.$clr-primary-black;
+    color: white;
+    font-size: 1.4rem;
+}
+
+.footer__elements div:last-child{
+    display: flex;
+    justify-content: flex-end;
+    gap: 3rem;
+}
+
+// MAP
+
+.map{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+iframe{
+    min-width: 100%;
+    border-radius: 2rem;
+}
+
+
+// ANIMATIONS
+
+header{
+    animation: nav-opacity 1.7s linear forwards;
+    z-index: 2 !important;
+}
+
+@keyframes nav-opacity {
+    0% {
+        opacity: 0;
+    }
+    
+    100% {
+        opacity: 1;
+    }
+    
+}
+
+
+.section-left{
+    transform: translateX(-30%);
+}
+
+.section-right{
+    transform: translateX(30%);
+}
+
+.section-right, .section-left{
+    animation: landing 1s linear forwards;
+}
+
+
+@keyframes landing {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+
+
+
+
+
+// Tablet
+
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+    
+    // GRID CONTROL
+    
+.section-padding {
+    @include v.section-control(10rem, 3rem)
+}
+
+.small-section-padding {
+    @include v.section-control(4rem, 3rem)
+}
+
+.even-columns {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    text-align: center;
+}
+
+.tripplet{
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+// margin
+
+.margin-p {
+    margin-bottom: 40px;
+}
+
+.card-testimonial{
+    @include v.flexer(center, center, row, 30px);
+}
+
+
+.hero__buttons{
+    @include v.flexer(center, center, row, 2rem)
+}
+
+.brands div img{
+    max-width: 7rem;
+}
+
+.nav-buttons{
+    flex-direction: column;
+}
+
+// FEATURES SECTION
+
+.card-feature{
+    max-width: 100%;
+}
+
+// METRICS
+
+.closeup > div:last-child{
+    @include v.flexer(center, center, column, 0rem)
+}
+
+.cards-wrapper {
+    @include v.flexer(center, center, row, 2rem);
+}
+
+// FOOTER
+
+.footer__elements div:last-child {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+
+}
+
+// Mobile
+
+@media screen and (max-width: 768px) {
+    
+    // GRID CONTROL
+    
+    .section-padding {
+        @include v.section-control(6rem, 3rem)
+    }
+    
+    .small-section-padding {
+        @include v.section-control(3rem, 3rem)
+    }
+    
+    .even-columns {
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+        text-align: center;
+        &>div:last-child img, div:first-child img{
+            max-height: 32rem;
+            max-width: 32rem;
+        }
+    }
+    
+    .tripplet {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+    .metrics{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+.dissapear{
+    display: none;
+}
+
+// margins
+
+.margin-p {
+    margin-bottom: 30px;
+}
+
+// buttons
+
+.button-green, .button-white{
+    padding: 16px 20px;
+   
+}
+
+.hero__buttons {
+    @include v.flexer(center, center, row, 2rem)
+}
+
+.heading-xl{
+    @include v.heading(v.$fs-500, v.$fw-700);
+}
+
+
+.brands{
+    grid-template-columns: repeat(3, 1fr);
+    div img{
+        max-width: 4.5rem;
+        max-height: 2rem;
+    }
+}
+
+.nav-buttons {
+    flex-direction: column;
+}
+
+// Features Section
+
+.card-feature {
+    max-width: 100%;
+}
+
+.closeup>div:last-child {
+    @include v.flexer(center, center, column, 0rem)
+}
+
+// TESTIMONIALS
+
+#carouselExample {
+    padding: 3rem 2rem;
+    margin: 0 2rem;
+}
+
+.card{
+    max-width: 26rem;
+}
+
+// PLAN
+
+.card-plan{
+    min-width: 90%;
+    padding: 2rem 1rem;
+}
+
+// CONTACT US
+input{
+    max-width: 10rem;
+}
+
+// FOOTER
+
+.footer__elements div:last-child {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+iframe {
+    max-width: 50%;
+}
+
+}
+
+// 
+
+
+// 
+
+// 
+
+
+// SMALLEST SCREENS
+
+@media screen and (max-width: 345px) {
+.section-padding {
+        @include v.section-control(1rem, 1rem)
+    }
+
+    .small-section-padding {
+        @include v.section-control(0.5rem, 0.5rem)
+    }
+
+.even-columns {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    text-align: center;
+
+    &>div:last-child img, div:last-child img {
+        max-height: 25rem;
+        max-width: 25rem;
+    }
+}
+
+.heading-xl {
+    @include v.heading(v.$fs-600, v.$fw-700);
+}
+
+.heading-l {
+    @include v.heading(v.$fs-500, v.$fw-700);
+}
+
+.heading-m {
+    @include v.heading(v.$fs-400, v.$fw-700);
+}
+
+.heading-m-2 {
+    @include v.heading(v.$fs-400, v.$fw-600);
+}
+
+.heading-s {
+    @include v.heading(v.$fs-300, v.$fw-600);
+}
+
+.heading-xs {
+    @include v.heading(v.$fs-200, v.$fw-600);
+}
+
+.heading-xxs {
+    @include v.heading(v.$fs-100, v.$fw-600)
+}
+
+.heading-xs-700 {
+    @include v.heading(v.$fs-200, v.$fw-700);
+}
+
+.heading-xs-400 {
+    @include v.heading(v.$fs-200, v.$fw-400);
+}
+
+.dissapear-small {
+    display: none;
+}
+
+// buttons
+
+.button-green,
+.button-white,
+.button-lightgreen,
+.button-transparent {
+    padding: 10px 12px;
+
+}
+
+// margins
+
+.margin-p {
+    margin-bottom: 10px;
+}
+
+// BRANDS
+
+.brands {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-items: center;
+    border-top: 1px solid v.$clr-primary-gray;
+    border-bottom: 1px solid v.$clr-primary-gray;
+    margin: 0 6rem;
+}
+
+// FEATURES SECTION
+
+.card-feature {
+    max-width: 100%;
+}
+
+.closeup>div:last-child {
+    @include v.flexer(center, center, column, 0rem)
+}
+
+.closeup>div:first-child img{
+    max-width: 20rem;
+}
+
+// TESTIMONIAls
+
+#carouselExample {
+    padding: 1rem 1rem;
+    margin: 0 0.5rem;
+}
+
+.card {
+    max-width: 15rem;
+}
+// CONTACT US
+
+input {
+    max-width: 8rem;
+}
+
+}

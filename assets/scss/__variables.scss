@@ -1,0 +1,82 @@
+
+// Typography and Headings
+
+$ff-body: 'Mulish', sans-serif;
+$ff-headings: 'Poppins', sans-serif;
+
+$fw-400: 400;
+$fw-600: 600;
+$fw-700: 700;
+
+$fs-100: 1.4rem;
+$fs-200: 1.6rem;
+$fs-300: 2.1rem;
+$fs-400: 2.8rem;
+$fs-500: 3.8rem;
+$fs-600: 5rem;
+$fs-700: 6.7rem;
+$fs-900: 9rem;
+
+// HEADINGS
+
+@mixin heading($size, $weight){
+    font-family: $ff-headings;
+    font-size: $size;
+    font-weight: $weight;
+    line-height: 130%;
+}
+
+
+@mixin main-body (){
+    font-family: $ff-body;
+    font-weight: $fw-400;
+    font-size: $fs-200;
+    line-height: 150%
+}
+
+// Colors
+
+$clr-primary-bg: #F8F9FF;
+$clr-primary-gray: #D8D8D8;
+$clr-primary-black: #2D2D2D;
+$clr-accent-green: #009379;
+$clr-accent-green-opacity: #00937933;
+$clr-accent-lightgreen: #E5F4F2;
+$clr-secondary-yellow: #F8D57E;
+$clr-secondary-yellow-opacity: #F8D57E33;
+$clr-secondary-pink: #F2BFAF;
+$clr-secondary-orange: #FF6250;
+$clr-secondary-orange-opacity: #FF625033;
+$clr-white: #fff;
+
+// Section Padding Control
+
+@mixin section-control($x, $y){
+    padding: $x $y;
+}
+
+// Grid Control
+
+@mixin flexer($justify, $align, $direct, $g){
+    display: flex;
+    flex-direction: $direct;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $g;
+}
+
+// Buttons
+
+@mixin button($bg, $clr){
+    height: 60px;
+    padding: 16px 50px;
+    border-radius: 20px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $bg;
+    color: $clr;
+    gap: 8px;
+    transition: transform 400ms;
+}
